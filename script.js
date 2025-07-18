@@ -4,6 +4,7 @@
 document.addEventListener('DOMContentLoaded', () => {
 
     const btnLimpar = document.getElementById("btnLimpar")
+    const btnSalvar = document.getElementById("btnSalvar")
     const blocoDeNotas = document.getElementById('blocoDeNotas');
     const notaSalva = localStorage.getItem('minhaNota');
 
@@ -11,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         blocoDeNotas.value = notaSalva;
     }
 
-    blocoDeNotas.addEventListener('input', () => {
+    btnSalvar.addEventListener('click', () => {
         localStorage.setItem('minhaNota', blocoDeNotas.value);
         console.log("Nota salva no localStorage!"); // Uma mensagem no console para fins de depuração.
     });
