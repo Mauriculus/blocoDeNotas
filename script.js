@@ -5,8 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const btnLimpar = document.getElementById("btnLimpar")
     const btnSalvar = document.getElementById("btnSalvar")
+    const btnRandom = document.getElementById("btnRandom")
     const blocoDeNotas = document.getElementById('blocoDeNotas');
     const notaSalva = localStorage.getItem('minhaNota');
+    const bodyHTML = document.body
 
     if (notaSalva) {
         blocoDeNotas.value = notaSalva;
@@ -23,4 +25,18 @@ document.addEventListener('DOMContentLoaded', () => {
         console.log("Notas limpas")
     })
 
-});
+    function gerarCor(){
+        let corRandom = "#"
+        for (let i = 0; i < 6; i++) {
+            corRandom += Math.floor(Math.random() * 16).toString(16)
+        }
+        return corRandom
+    }
+    
+
+    btnRandom.addEventListener('click', () =>{
+        const cor = gerarCor()
+        bodyHTML.style.backgroundColor = cor
+    });
+
+})
